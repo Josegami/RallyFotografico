@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">RallyFotografico</string>
+    <string name="btnComienzo">Comenzar</string>
+    //Menu HOME
+    <string name="btngaleria">Galeria</string>
+    <string name="btnRegister">Registro</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnInfo">Información</string>
+    //Menu Login y Registro
+    <string name="btnRegistro">Registrar</string>
+    <string name="btnLogearse">Login</string>
+    //Menu General
+    //Menu Admin
+    //Menu Participante
 </resources>
