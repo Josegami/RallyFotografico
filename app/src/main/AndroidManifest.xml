@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".MainApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,27 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RallyFotografico"
         tools:targetApi="31">
-        <activity
-            android:name=".activities.RegistroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.GeneralActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ParticipanteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.AdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainApplication"
-            android:exported="false" />
         <activity
             android:name=".activities.StartActivity"
             android:exported="true">
