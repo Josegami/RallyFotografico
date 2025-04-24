@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/editTextPlazoRecepcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Plazo de recepción de fotos" />
+
+    <EditText
+        android:id="@+id/editTextLimiteFotos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Límite de fotos por participante"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextPlazoVotacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Plazo permitido para votar" />
+
+    <Button
+        android:id="@+id/botonGuardarParametros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar" />
+</LinearLayout>

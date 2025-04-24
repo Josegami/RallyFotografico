@@ -11,5 +11,7 @@
     <string name="btnLogearse">Login</string>
     //Menu General
     //Menu Admin
+    <string name="param">Parametros</string>
+    <string name="usuarios">Usuarios</string>
     //Menu Participante
 </resources>

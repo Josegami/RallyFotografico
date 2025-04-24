@@ -9,13 +9,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rallyfotografico.R;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistroActivity extends AppCompatActivity {
 
     private EditText campoCorreo, campoContrasena;
     private Button botonRegistrar;
-    private FirebaseAuth auth;
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +28,12 @@ public class RegistroActivity extends AppCompatActivity {
         campoCorreo = findViewById(R.id.editTextCorreo);
         campoContrasena = findViewById(R.id.editTextContrasena);
         botonRegistrar = findViewById(R.id.botonLogin);
-        auth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
-        botonRegistrar.setOnClickListener(view -> registrarUsuario());
+        botonRegistrar.setOnClickListener(view -> registrarParticipante());
     }
 
-    private void registrarUsuario() {
+    private void registrarParticipante() {
         String correo = campoCorreo.getText().toString().trim();
         String contrasena = campoContrasena.getText().toString().trim();
 
@@ -39,15 +42,19 @@ public class RegistroActivity extends AppCompatActivity {
             return;
         }
 
-        auth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, HomeActivity.class));
-                finish();
-            } else {
-                Toast.makeText(this, "Error al registrar: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+        Map<String, Object> participante = new HashMap<>();
+        participante.put("correo", correo);
+        participante.put("contrasena", contrasena); // Nota: guardar contraseñas sin cifrar no es seguro
 
+        firestore.collection("participantes")
+                .add(participante)
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(this, "Participante registrado correctamente", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, HomeActivity.class));
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Error al registrar: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                });
     }
 }

@@ -1,6 +1,8 @@
 package com.example.rallyfotografico.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +24,15 @@ public class AdminActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+    }
+    public void parametros(View view){
+        Intent intent = new Intent(this, ParametrosActivity.class);
+        startActivity(intent);
+    }
+
+    public void usuarios(View view){
+        Intent intent = new Intent(this, GestionUsuariosActivity.class);
+        startActivity(intent);
     }
 }

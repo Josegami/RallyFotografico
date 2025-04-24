@@ -41,7 +41,6 @@ dependencies {
     implementation(libs.picasso)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.mediation.test.suite)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
