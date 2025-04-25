@@ -49,12 +49,27 @@ public class RegistroActivity extends AppCompatActivity {
         firestore.collection("participantes")
                 .add(participante)
                 .addOnSuccessListener(documentReference -> {
+                    String idFirestore = documentReference.getId(); // ← ¡AQUÍ se obtiene el ID!
+
+                    // Guardar en SharedPreferences
+                    getSharedPreferences("UsuarioPrefs", MODE_PRIVATE)
+                            .edit()
+                            .putString("idParticipante", idFirestore)
+                            .apply();
+
                     Toast.makeText(this, "Participante registrado correctamente", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, HomeActivity.class));
+
+                    // Ir al formulario de datos personales
+                    Intent intent = new Intent(this, FormularioDatosPersonalesActivity.class);
+                    intent.putExtra("idParticipante", idFirestore); // ← Lo pasamos por si prefieres usar el intent
+                    intent.putExtra("correo", correo); // (esto ya lo tenías)
+                    startActivity(intent);
                     finish();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Error al registrar: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
+
+
     }
 }

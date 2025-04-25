@@ -9,6 +9,14 @@
     //Menu Login y Registro
     <string name="btnRegistro">Registrar</string>
     <string name="btnLogearse">Login</string>
+    <string-array name="generos_array">
+        <item>Masculino</item>
+        <item>Femenino</item>
+        <item>No binario</item>
+        <item>Otro</item>
+        <item>Prefiero no decirlo</item>
+    </string-array>
+
     //Menu General
     //Menu Admin
     <string name="param">Parametros</string>

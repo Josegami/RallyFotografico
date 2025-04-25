@@ -1,6 +1,8 @@
 package com.example.rallyfotografico.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +24,12 @@ public class ParticipanteActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void editar(View view){
+        Intent intent = new Intent(this, EditarPerfilActivity.class);
+        //intent.putExtra("idParticipante", idFirestore); // este lo guardas tras login
+        startActivity(intent);
+
     }
 }
