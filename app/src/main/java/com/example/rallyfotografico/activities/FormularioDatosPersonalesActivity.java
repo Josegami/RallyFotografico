@@ -3,8 +3,10 @@ package com.example.rallyfotografico.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +19,8 @@ import java.util.Map;
 
 public class FormularioDatosPersonalesActivity extends AppCompatActivity {
 
-    private EditText editTextNombre, editTextTelefono, editTextGenero, editTextNacimiento;
+    private EditText editTextNombre, editTextTelefono, editTextNacimiento;
+    private Spinner spinnerGenero;
     private Button botonGuardar;
     private FirebaseFirestore firestore;
     private String idParticipante;
@@ -28,10 +31,25 @@ public class FormularioDatosPersonalesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_datos_personales);
 
+        spinnerGenero = findViewById(R.id.spinnerGenero);
+
+        // Lista de opciones para el Spinner
+        String[] generos = {"Hombre", "Mujer", "Otro"};
+
+        // Adaptador para mostrar las opciones
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                generos
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerGenero.setAdapter(adapter);
+
+
         // Referencias UI
         editTextNombre = findViewById(R.id.editNombre);
         editTextTelefono = findViewById(R.id.editTelefono);
-        editTextGenero = findViewById(R.id.spinnerGenero);
+        spinnerGenero = findViewById(R.id.spinnerGenero);
         editTextNacimiento = findViewById(R.id.editFechaNacimiento);
         botonGuardar = findViewById(R.id.botonGuardar);
 
@@ -57,7 +75,7 @@ public class FormularioDatosPersonalesActivity extends AppCompatActivity {
     private void guardarDatosPersonales() {
         String nombre = editTextNombre.getText().toString().trim();
         String telefono = editTextTelefono.getText().toString().trim();
-        String genero = editTextGenero.getText().toString().trim();
+        String genero = spinnerGenero.getSelectedItem().toString();
         String nacimiento = editTextNacimiento.getText().toString().trim();
 
         if (nombre.isEmpty() || telefono.isEmpty() || genero.isEmpty() || nacimiento.isEmpty()) {

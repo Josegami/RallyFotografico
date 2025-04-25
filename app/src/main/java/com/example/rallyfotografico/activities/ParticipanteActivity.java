@@ -24,12 +24,18 @@ public class ParticipanteActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
     }
 
     public void editar(View view){
-        Intent intent = new Intent(this, EditarPerfilActivity.class);
-        //intent.putExtra("idParticipante", idFirestore); // este lo guardas tras login
-        startActivity(intent);
+        String idFirestore = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE)
+                .getString("idParticipante", null);
 
+        if (idFirestore != null) {
+            Intent intent = new Intent(this, EditarPerfilActivity.class);
+            intent.putExtra("idParticipante", idFirestore);
+            startActivity(intent);
+        }
     }
+
 }

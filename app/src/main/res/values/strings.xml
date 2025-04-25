@@ -22,4 +22,5 @@
     <string name="param">Parametros</string>
     <string name="usuarios">Usuarios</string>
     //Menu Participante
+    <string name="edit">Editar usuario</string>
 </resources>

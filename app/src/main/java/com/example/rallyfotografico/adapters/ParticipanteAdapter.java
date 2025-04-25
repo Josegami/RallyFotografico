@@ -1,6 +1,7 @@
 package com.example.rallyfotografico.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rallyfotografico.R;
+import com.example.rallyfotografico.activities.EditarPerfilActivity;
 import com.example.rallyfotografico.model.Participante;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -51,6 +53,13 @@ public class ParticipanteAdapter extends RecyclerView.Adapter<ParticipanteAdapte
                         Toast.makeText(context, "Error al eliminar", Toast.LENGTH_SHORT).show();
                     });
         });
+        holder.botonModificar.setOnClickListener(v -> {
+            Intent intent = new Intent(context, EditarPerfilActivity.class);
+            intent.putExtra("idParticipante", p.getId()); // este ID debe estar en el modelo
+            intent.putExtra("modoAdmin", true);
+            context.startActivity(intent);
+        });
+
     }
 
     @Override
@@ -60,12 +69,13 @@ public class ParticipanteAdapter extends RecyclerView.Adapter<ParticipanteAdapte
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textCorreo;
-        Button btnEliminar;
+        Button btnEliminar, botonModificar;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             textCorreo = itemView.findViewById(R.id.tvCorreoParticipante);
             btnEliminar = itemView.findViewById(R.id.btnEliminarParticipante);
+            botonModificar = itemView.findViewById(R.id.botonModificar);
         }
     }
 }

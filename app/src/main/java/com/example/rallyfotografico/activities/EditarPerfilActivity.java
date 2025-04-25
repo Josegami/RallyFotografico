@@ -54,15 +54,26 @@ public class EditarPerfilActivity extends AppCompatActivity {
     }
 
     private void guardarCambios() {
-        Map<String, Object> datosActualizados = new HashMap<>();
-        datosActualizados.put("telefono", editTelefono.getText().toString().trim());
-        datosActualizados.put("fechaNacimiento", editFechaNacimiento.getText().toString().trim());
-        datosActualizados.put("genero", editGenero.getText().toString().trim());
-        datosActualizados.put("ciudad", editCiudad.getText().toString().trim());
+        String telefono = editTelefono.getText().toString().trim();
+        String fechaNacimiento = editFechaNacimiento.getText().toString().trim();
+        String genero = editGenero.getText().toString().trim();
+        String ciudad = editCiudad.getText().toString().trim();
 
-        DocumentReference docRef = firestore.collection("participantes").document(idParticipante);
-        docRef.update(datosActualizados)
+        if (telefono.isEmpty() || fechaNacimiento.isEmpty() || genero.isEmpty() || ciudad.isEmpty()) {
+            Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Map<String, Object> datosActualizados = new HashMap<>();
+        datosActualizados.put("telefono", telefono);
+        datosActualizados.put("fechaNacimiento", fechaNacimiento);
+        datosActualizados.put("genero", genero);
+        datosActualizados.put("ciudad", ciudad);
+
+        firestore.collection("participantes").document(idParticipante)
+                .update(datosActualizados)
                 .addOnSuccessListener(aVoid -> Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show())
                 .addOnFailureListener(e -> Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show());
     }
+
 }
