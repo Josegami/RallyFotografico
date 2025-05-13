@@ -13,6 +13,7 @@ firebase-firestore = "24.8.1"
 picasso = "2.8"
 google-services = "4.3.15"
 mediationTestSuite = "3.0.0"
+firebaseStorage = "21.0.1"
 
 
 [libraries]
@@ -28,6 +29,7 @@ picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 mediation-test-suite = { group = "com.google.android.ads", name = "mediation-test-suite", version.ref = "mediationTestSuite" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

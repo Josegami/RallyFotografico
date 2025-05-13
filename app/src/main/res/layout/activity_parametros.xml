@@ -23,6 +23,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Plazo permitido para votar" />
+    <EditText
+        android:id="@+id/editTextFormatos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Formatos permitidos" />
 
     <Button
         android:id="@+id/botonGuardarParametros"

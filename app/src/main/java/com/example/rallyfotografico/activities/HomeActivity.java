@@ -18,7 +18,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private Button btnRegistro, btnLogin, botonInformacion;
     private LinearLayout panelInformacion;
-    private TextView tvPlazoFotos, tvLimiteFotos, tvPlazoVotacion;
+    private TextView tvPlazoFotos, tvLimiteFotos, tvPlazoVotacion, tvFormato;
     private boolean infoVisible = false;
 
     @Override
@@ -65,11 +65,14 @@ public class HomeActivity extends AppCompatActivity {
                     if (documentSnapshot.exists()) {
                         String plazoRecepcion = documentSnapshot.getString("plazoRecepcion");
                         String plazoVotacion = documentSnapshot.getString("plazoVotacion");
-                        Long limiteFotos = documentSnapshot.getLong("limiteFotos"); // ⚠️ importante
+                        Long limiteFotos = documentSnapshot.getLong("limiteFotos");
+                        String formatoFoto = documentSnapshot.getString("formatosPermitidos");
+
 
                         tvPlazoFotos.setText("Plazo de recepción de fotografías: " + plazoRecepcion);
                         tvLimiteFotos.setText("Límite de fotos por participante: " + (limiteFotos != null ? limiteFotos.toString() : "N/D"));
                         tvPlazoVotacion.setText("Plazo permitido de votación: " + plazoVotacion);
+                        tvFormato.setText("Formatos permitidos: " + formatoFoto);
                     } else {
                         Toast.makeText(this, "No se encontraron parámetros", Toast.LENGTH_SHORT).show();
                     }

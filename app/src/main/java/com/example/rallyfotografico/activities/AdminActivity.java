@@ -35,4 +35,9 @@ public class AdminActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GestionUsuariosActivity.class);
         startActivity(intent);
     }
+
+    public void validarFotos(View view){
+        startActivity(new Intent(this, ValidarFotosActivity.class));
+    }
+
 }

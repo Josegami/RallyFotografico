@@ -38,4 +38,10 @@ public class ParticipanteActivity extends AppCompatActivity {
         }
     }
 
+    public void subirFoto(View view){
+        Intent intent = new Intent(this, SubidaFotoActivity.class);
+        startActivity(intent);
+    }
+
+
 }
