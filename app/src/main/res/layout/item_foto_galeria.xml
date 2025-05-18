@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imagenGaleria"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/border_panel"/>
+
+    <TextView
+        android:id="@+id/usuarioNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Participante"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>

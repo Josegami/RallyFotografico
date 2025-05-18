@@ -1,6 +1,7 @@
 package com.example.rallyfotografico.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rallyfotografico.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
@@ -45,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (correo.equalsIgnoreCase("usuarioAdmin@gmail.com")) {
-            // Login del administrador a través de Authentication
             auth.signInWithEmailAndPassword(correo, contrasena)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -56,13 +57,19 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
         } else {
-            // Login de participante validando en Firestore
             firestore.collection("participantes")
                     .whereEqualTo("correo", correo)
-                    .whereEqualTo("contrasena", contrasena) // ⚠️ No recomendable en producción
+                    .whereEqualTo("contrasena", contrasena) // ⚠️ No recomendado para producción
                     .get()
                     .addOnSuccessListener(querySnapshot -> {
                         if (!querySnapshot.isEmpty()) {
+                            DocumentSnapshot doc = querySnapshot.getDocuments().get(0);
+                            String idParticipante = doc.getId();
+
+                            // Guardar en SharedPreferences para acceso global
+                            SharedPreferences prefs = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
+                            prefs.edit().putString("idParticipante", idParticipante).apply();
+
                             startActivity(new Intent(this, ParticipanteActivity.class));
                             finish();
                         } else {

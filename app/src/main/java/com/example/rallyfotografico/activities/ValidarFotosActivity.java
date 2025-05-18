@@ -1,6 +1,7 @@
 package com.example.rallyfotografico.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,18 +73,30 @@ public class ValidarFotosActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull FotoViewHolder holder, int position) {
             Map<String, Object> foto = fotos.get(position);
-            String base64 = (String) foto.get("imagenBase64");
+            String base64 = (String) foto.get("imagen");
 
-            Glide.with(holder.imagen.getContext())
-                    .asBitmap()
-                    .load("data:image/jpeg;base64," + base64)
-                    .into(holder.imagen);
+            if (base64 != null && !base64.isEmpty()) {
+                // Elimina el prefijo si lo hubiera
+                if (base64.contains(",")) {
+                    base64 = base64.split(",")[1];
+                }
+
+                try {
+                    byte[] imageBytes = android.util.Base64.decode(base64, android.util.Base64.DEFAULT);
+                    android.graphics.Bitmap bitmap = android.graphics.BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                    holder.imagen.setImageBitmap(bitmap);
+                } catch (Exception e) {
+                    Log.e("DECODIFICAR", "Error al decodificar la imagen: " + e.getMessage());
+                }
+            }
 
             String idFoto = (String) foto.get("id");
 
             holder.botonAceptar.setOnClickListener(v -> actualizarEstado(idFoto, "admitida", position));
             holder.botonRechazar.setOnClickListener(v -> actualizarEstado(idFoto, "rechazada", position));
         }
+
+
 
         @Override
         public int getItemCount() {

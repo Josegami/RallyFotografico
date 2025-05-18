@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rallyfotografico.R;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -18,7 +18,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
     private EditText editTelefono, editFechaNacimiento, editGenero, editCiudad;
     private Button botonGuardar;
     private FirebaseFirestore firestore;
-    private String idParticipante; // este ID se debe pasar desde el login o mantenerse en sesión
+    private String idParticipante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,13 @@ public class EditarPerfilActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
 
-        idParticipante = getIntent().getStringExtra("idParticipante"); // debes pasarlo al abrir esta actividad
+        idParticipante = getIntent().getStringExtra("idParticipante");
+
+        if (idParticipante == null) {
+            Toast.makeText(this, "ID del participante no encontrado", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
         cargarDatos();
 
@@ -75,5 +81,4 @@ public class EditarPerfilActivity extends AppCompatActivity {
                 .addOnSuccessListener(aVoid -> Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show())
                 .addOnFailureListener(e -> Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show());
     }
-
 }

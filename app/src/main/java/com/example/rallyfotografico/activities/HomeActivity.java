@@ -7,12 +7,23 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rallyfotografico.R;
+import com.example.rallyfotografico.adapters.FotosAdapter;
+import com.example.rallyfotografico.adapters.GaleriaAdapter;
+import com.example.rallyfotografico.model.Fotografia;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -20,6 +31,12 @@ public class HomeActivity extends AppCompatActivity {
     private LinearLayout panelInformacion;
     private TextView tvPlazoFotos, tvLimiteFotos, tvPlazoVotacion, tvFormato;
     private boolean infoVisible = false;
+    private RecyclerView recyclerCarrusel;
+    private GaleriaAdapter galeriaAdapter;
+    private List<Fotografia> listaFotos = new ArrayList<>();
+    private Map<String, String> mapaUsuarios = new HashMap<>();
+
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +50,13 @@ public class HomeActivity extends AppCompatActivity {
         tvPlazoFotos = findViewById(R.id.tvPlazoFotos);
         tvLimiteFotos = findViewById(R.id.tvLimiteFotos);
         tvPlazoVotacion = findViewById(R.id.tvPlazoVotacion);
+        db = FirebaseFirestore.getInstance();
+
+        recyclerCarrusel = findViewById(R.id.recyclerCarrusel);
+        recyclerCarrusel.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        galeriaAdapter = new GaleriaAdapter(listaFotos, mapaUsuarios);
+        recyclerCarrusel.setAdapter(galeriaAdapter);
 
         botonInformacion.setOnClickListener(v -> {
             if (!infoVisible) {
@@ -45,6 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         configurarEventos();
+        //cargarParticipantesYFotos();
     }
 
     private void inicializarVista() {
@@ -82,6 +107,47 @@ public class HomeActivity extends AppCompatActivity {
                 });
     }
 
+    /*private void cargarParticipantesYFotos() {
+        db.collection("participantes")
+                .get()
+                .addOnSuccessListener(participantesSnapshot -> {
+                    for (DocumentSnapshot doc : participantesSnapshot) {
+                        String id = doc.getId();
+                        String nombre = doc.getString("nombre");
+                        if (nombre != null) {
+                            mapaUsuarios.put(id, nombre);
+                        }
+                    }
+                    cargarFotosAdmitidas();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Error cargando participantes", Toast.LENGTH_SHORT).show();
+                    Log.e("HomeActivity", "Error cargando participantes", e);
+                });
+    }
+
+    private void cargarFotosAdmitidas() {
+        db.collection("fotos")
+                .whereEqualTo("estado", "admitida")
+                .get()
+                .addOnSuccessListener(fotosSnapshot -> {
+                    listaFotos.clear();
+                    for (DocumentSnapshot doc : fotosSnapshot) {
+                        Fotografia foto = doc.toObject(Fotografia.class);
+                        if (foto != null) {
+                            foto.setId(doc.getId());
+                            listaFotos.add(foto);
+                        }
+                    }
+                    galeriaAdapter.notifyDataSetChanged();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Error cargando fotos admitidas", Toast.LENGTH_SHORT).show();
+                    Log.e("HomeActivity", "Error cargando fotos", e);
+                });
+    }
+*/
+
 
     private void irARegistro() {
         Intent intent = new Intent(this, RegistroActivity.class);
@@ -92,4 +158,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+
 }

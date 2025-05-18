@@ -24,10 +24,9 @@ public class ParticipanteActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
     }
 
-    public void editar(View view){
+    public void editar(View view) {
         String idFirestore = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE)
                 .getString("idParticipante", null);
 
@@ -38,10 +37,28 @@ public class ParticipanteActivity extends AppCompatActivity {
         }
     }
 
-    public void subirFoto(View view){
+    public void subirFoto(View view) {
         Intent intent = new Intent(this, SubidaFotoActivity.class);
         startActivity(intent);
     }
 
+    public void cerrarSesion(View view) {
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Cerrar sesión")
+                .setMessage("¿Seguro que deseas cerrar sesión?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    getSharedPreferences("UsuarioPrefs", MODE_PRIVATE)
+                            .edit()
+                            .remove("idParticipante")
+                            .apply();
+
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
+    }
 
 }

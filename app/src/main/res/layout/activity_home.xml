@@ -7,25 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity">
 
-    <Button
-        android:id="@+id/buttonGalery"
-        android:layout_width="203dp"
-        android:layout_height="192dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="128dp"
-        android:text="@string/btngaleria"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
         android:text="@string/btnInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGalery" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
     <LinearLayout
         android:id="@+id/panel_informacion"
@@ -66,20 +57,37 @@
         android:id="@+id/buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="96dp"
         android:text="@string/btnRegister"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGalery" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerCarrusel" />
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="96dp"
         android:text="@string/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.676"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintStart_toEndOf="@+id/buttonRegister"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGalery" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerCarrusel" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCarrusel"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.356" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
