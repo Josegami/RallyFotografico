@@ -3,6 +3,7 @@ package com.example.rallyfotografico.model;
 public class Fotografia {
     private String id;
     private String idParticipante;
+    private String nombreUsuario;
     private String imagenBase64;
     private String estado; // "pendiente", "admitida", "rechazada"
 
@@ -38,6 +39,10 @@ public class Fotografia {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 }
 

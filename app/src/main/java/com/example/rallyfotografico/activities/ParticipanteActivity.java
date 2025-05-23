@@ -42,6 +42,18 @@ public class ParticipanteActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void verMisFotos(View view){
+        String idFirestore = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE)
+                .getString("idParticipante", null);
+
+        if (idFirestore != null) {
+            Intent intent = new Intent(this, MisFotosActivity.class);
+            intent.putExtra("idParticipante", idFirestore);
+            startActivity(intent);
+        }
+    }
+
+
     public void cerrarSesion(View view) {
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("Cerrar sesión")

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.RallyFotografico"
         tools:targetApi="31">
         <activity
+            android:name=".activities.MisFotosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GeneralActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ValidarFotosActivity"
             android:exported="false" />
         <activity

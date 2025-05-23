@@ -1,24 +1,24 @@
-<!-- res/layout/activity_general.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tituloGaleria"
+        android:id="@+id/tituloMisFotos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Galería de Fotografías"
+        android:text="Mis Fotografías"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
         android:paddingBottom="12dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerGaleria"
+        android:id="@+id/recyclerMisFotos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal" />
+        android:layout_height="match_parent"
+        android:padding="16dp"/>
+
+
 </LinearLayout>
