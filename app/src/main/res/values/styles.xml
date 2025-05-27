@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TemaPrimavera" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#4CAF50</item>
+        <item name="colorPrimaryVariant">#388E3C</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#8BC34A</item>
+        <item name="android:windowBackground">#DCEDC8</item>
+    </style>
+
+    <style name="TemaNieve" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#2196F3</item>
+        <item name="colorPrimaryVariant">#1976D2</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#03A9F4</item>
+        <item name="android:windowBackground">#BBDEFB</item>
+    </style>
+
+    <style name="TemaCalor" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#F44336</item>
+        <item name="colorPrimaryVariant">#D32F2F</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#FF5722</item>
+        <item name="android:windowBackground">#FFCCBC</item>
+    </style>
+
+</resources>

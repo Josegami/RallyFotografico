@@ -1,5 +1,6 @@
 <!-- res/layout/activity_general.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/generalLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -21,4 +22,53 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:scrollbars="horizontal" />
+
+    <!-- Espacio flexible para empujar los botones abajo -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Botones de cambio de tema estéticos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/btnPrimavera"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="🌼"
+            android:backgroundTint="@color/green_200"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="6dp"
+            android:tooltipText="Primavera" />
+
+        <Button
+            android:id="@+id/btnNieve"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="❄️"
+            android:backgroundTint="@color/blue_200"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="6dp"
+            android:tooltipText="Nieve" />
+
+        <Button
+            android:id="@+id/btnCalor"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="☀️"
+            android:backgroundTint="@color/red_200"
+            android:textColor="@android:color/white"
+            android:tooltipText="Calor" />
+    </LinearLayout>
 </LinearLayout>

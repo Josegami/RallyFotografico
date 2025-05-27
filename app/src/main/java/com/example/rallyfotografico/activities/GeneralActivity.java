@@ -1,5 +1,6 @@
 package com.example.rallyfotografico.activities;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -8,7 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +37,10 @@ public class GeneralActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences prefs = getSharedPreferences("TemaPrefs", MODE_PRIVATE);
+        int temaSeleccionado = prefs.getInt("tema", R.style.TemaPrimavera);
+        setTheme(temaSeleccionado);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
 
@@ -45,6 +52,23 @@ public class GeneralActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         cargarFotosAdmitidas();
+
+        LinearLayout generalLayout = findViewById(R.id.generalLayout);
+
+        Button btnPrimavera = findViewById(R.id.btnPrimavera);
+        Button btnNieve = findViewById(R.id.btnNieve);
+        Button btnCalor = findViewById(R.id.btnCalor);
+
+        btnPrimavera.setOnClickListener(v -> cambiarTema(R.style.TemaPrimavera));
+        btnNieve.setOnClickListener(v -> cambiarTema(R.style.TemaNieve));
+        btnCalor.setOnClickListener(v -> cambiarTema(R.style.TemaCalor));
+    }
+
+    private void cambiarTema(int nuevoTema) {
+        SharedPreferences.Editor editor = getSharedPreferences("TemaPrefs", MODE_PRIVATE).edit();
+        editor.putInt("tema", nuevoTema);
+        editor.apply();
+        recreate(); // Reinicia la activity para aplicar el nuevo tema
     }
 
     private void cargarFotosAdmitidas() {

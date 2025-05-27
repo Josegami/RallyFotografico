@@ -1,6 +1,7 @@
 package com.example.rallyfotografico.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        SharedPreferences prefs = getSharedPreferences("configuracion", MODE_PRIVATE);
+        prefs.edit().remove("consentimientoAceptado").apply();
 
         inicializarVista();
 
@@ -98,7 +102,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void irAGaleria(View view) {
-        Intent intent = new Intent(this, GeneralActivity.class);
+        Intent intent = new Intent(this, ConsentimientoActivity.class);
         startActivity(intent);
     }
 }

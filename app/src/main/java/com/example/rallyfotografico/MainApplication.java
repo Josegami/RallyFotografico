@@ -21,6 +21,5 @@ public class MainApplication extends Application {
         // Inicializar Firebase
         FirebaseApp.initializeApp(this);
 
-        // Aquí puedes inicializar otras cosas globales si las necesitas en el futuro
     }
 }

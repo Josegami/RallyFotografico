@@ -2,23 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
 
-    <!-- res/layout/item_foto_participante.xml -->
+    <!-- Imagen y estado -->
+    <FrameLayout
+        android:layout_width="200dp"
+        android:layout_height="120dp">
+
+        <ImageView
+            android:id="@+id/imagenParticipante"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/estadoFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="6dp"
+            android:background="@android:color/black"
+            android:padding="4dp"
+            android:text="pendiente"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- Botón eliminar -->
     <ImageView
-        android:id="@+id/imagenParticipante"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_margin="8dp"
-        android:scaleType="centerCrop" />
-
-
-    <TextView
-        android:id="@+id/estadoFoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:text="Estado: pendiente" />
-
+        android:id="@+id/btnEliminar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:background="@android:color/holo_red_dark"
+        android:contentDescription="Eliminar foto"
+        android:padding="8dp"
+        android:src="@android:drawable/ic_menu_delete" />
 </LinearLayout>

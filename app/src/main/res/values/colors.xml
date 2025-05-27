@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green_200">#81C784</color> <!-- Primavera -->
+    <color name="blue_200">#64B5F6</color>  <!-- Nieve -->
+    <color name="red_200">#E57373</color>   <!-- Calor -->
+
 </resources>
