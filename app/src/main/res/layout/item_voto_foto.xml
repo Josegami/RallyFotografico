@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:layout_gravity="center"
+    android:elevation="6dp"
+    android:padding="8dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:backgroundTint="@color/white"
+    android:clickable="false"
+    android:focusable="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/imagenFoto"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/nombreUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Participante"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:paddingBottom="6dp"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnVotar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Votar"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/red_200"
+            android:paddingHorizontal="16dp" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

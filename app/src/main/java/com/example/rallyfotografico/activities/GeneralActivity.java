@@ -1,5 +1,6 @@
 package com.example.rallyfotografico.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -62,6 +63,11 @@ public class GeneralActivity extends AppCompatActivity {
         btnPrimavera.setOnClickListener(v -> cambiarTema(R.style.TemaPrimavera));
         btnNieve.setOnClickListener(v -> cambiarTema(R.style.TemaNieve));
         btnCalor.setOnClickListener(v -> cambiarTema(R.style.TemaCalor));
+    }
+
+    public void irAVotos(View view) {
+        Intent intent = new Intent(this, VotacionActivity.class);
+        startActivity(intent);
     }
 
     private void cambiarTema(int nuevoTema) {

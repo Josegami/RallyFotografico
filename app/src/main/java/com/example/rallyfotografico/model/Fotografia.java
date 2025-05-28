@@ -6,6 +6,7 @@ public class Fotografia {
     private String nombreUsuario;
     private String imagenBase64;
     private String estado; // "pendiente", "admitida", "rechazada"
+    private int votos;     // Nuevo campo
 
     public Fotografia() {} // Necesario para Firebase
 
@@ -44,5 +45,16 @@ public class Fotografia {
     public String getNombreUsuario() {
         return nombreUsuario;
     }
-}
 
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public int getVotos() {
+        return votos;
+    }
+
+    public void setVotos(int votos) {
+        this.votos = votos;
+    }
+}

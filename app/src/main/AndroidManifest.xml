@@ -15,6 +15,9 @@
         android:theme="@style/Theme.RallyFotografico"
         tools:targetApi="31">
         <activity
+            android:name=".activities.VotacionActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ConsentimientoActivity"
             android:exported="false" />
         <activity
