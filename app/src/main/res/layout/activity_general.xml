@@ -30,12 +30,20 @@
         android:layout_weight="1" />
 
     <!-- Botones de cambio de tema estéticos -->
+
     <Button
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="irAVotos"
         android:text="Votacion" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="irARanking"
+        android:text="Ranking" />
 
     <LinearLayout
         android:layout_width="match_parent"

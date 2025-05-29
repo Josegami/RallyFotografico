@@ -47,7 +47,7 @@ public class VotacionActivity extends AppCompatActivity {
         votosDisponibles = preferencias.getInt("votosDisponibles", 5);
 
         recyclerVotos = findViewById(R.id.recyclerVotos);
-        recyclerVotos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerVotos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         db = FirebaseFirestore.getInstance();
         adapter = new VotoAdapter();

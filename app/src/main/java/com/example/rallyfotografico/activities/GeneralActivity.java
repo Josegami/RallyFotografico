@@ -70,6 +70,11 @@ public class GeneralActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void irARanking(View view) {
+        Intent intent = new Intent(this, RankingActivity.class);
+        startActivity(intent);
+    }
+
     private void cambiarTema(int nuevoTema) {
         SharedPreferences.Editor editor = getSharedPreferences("TemaPrefs", MODE_PRIVATE).edit();
         editor.putInt("tema", nuevoTema);
