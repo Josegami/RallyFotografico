@@ -40,4 +40,8 @@ public class AdminActivity extends AppCompatActivity {
         startActivity(new Intent(this, ValidarFotosActivity.class));
     }
 
+    public void estadisticas(View view){
+        startActivity(new Intent(this, EstadisticasActivity.class));
+    }
+
 }
