@@ -1,6 +1,7 @@
 package com.example.rallyfotografico.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.rallyfotografico.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -42,6 +44,20 @@ public class AdminActivity extends AppCompatActivity {
 
     public void estadisticas(View view){
         startActivity(new Intent(this, EstadisticasActivity.class));
+    }
+
+    public void cerrarSesion(View view){
+        FirebaseAuth.getInstance().signOut();
+
+        // Limpiar preferencias si se usan
+        SharedPreferences prefs = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
+        prefs.edit().clear().apply();
+
+        // Volver a login
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Evita volver con "atrás"
+        startActivity(intent);
+        finish();
     }
 
 }

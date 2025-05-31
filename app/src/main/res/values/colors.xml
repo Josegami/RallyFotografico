@@ -5,5 +5,7 @@
     <color name="green_200">#81C784</color> <!-- Primavera -->
     <color name="blue_200">#64B5F6</color>  <!-- Nieve -->
     <color name="red_200">#E57373</color>   <!-- Calor -->
+    <color name="md_theme_light_background">#FFF7F7</color>
+    <color name="md_theme_light_onBackground">#1B1B1F</color>
 
 </resources>

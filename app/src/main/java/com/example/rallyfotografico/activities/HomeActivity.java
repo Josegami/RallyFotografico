@@ -1,11 +1,12 @@
 package com.example.rallyfotografico.activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,14 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.rallyfotografico.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.List;
+
 public class HomeActivity extends AppCompatActivity {
 
     private Button btnRegistro, btnLogin, botonInformacion;
-    private LinearLayout panelInformacion;
-    private TextView tvPlazoFotos, tvLimiteFotos, tvPlazoVotacion, tvFormato;
-    private boolean infoVisible = false;
-
-
     private FirebaseFirestore db;
 
     @Override
@@ -34,23 +32,9 @@ public class HomeActivity extends AppCompatActivity {
 
         inicializarVista();
 
-        botonInformacion = findViewById(R.id.buttonInfo); // corregido el ID del botón info
-        panelInformacion = findViewById(R.id.panel_informacion);
-        tvPlazoFotos = findViewById(R.id.tvPlazoFotos);
-        tvLimiteFotos = findViewById(R.id.tvLimiteFotos);
-        tvPlazoVotacion = findViewById(R.id.tvPlazoVotacion);
         db = FirebaseFirestore.getInstance();
 
-
-        botonInformacion.setOnClickListener(v -> {
-            if (!infoVisible) {
-                cargarParametrosDesdeFirestore();
-                panelInformacion.setVisibility(View.VISIBLE);
-            } else {
-                panelInformacion.setVisibility(View.GONE);
-            }
-            infoVisible = !infoVisible;
-        });
+        botonInformacion.setOnClickListener(v -> mostrarDialogoParametros());
 
         configurarEventos();
     }
@@ -58,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
     private void inicializarVista() {
         btnRegistro = findViewById(R.id.buttonRegister);
         btnLogin = findViewById(R.id.buttonLogin);
+        botonInformacion = findViewById(R.id.buttonInfo);
     }
 
     private void configurarEventos() {
@@ -65,8 +50,20 @@ public class HomeActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> irALogin());
     }
 
-    private void cargarParametrosDesdeFirestore() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private void mostrarDialogoParametros() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.dialog_parametros_rally, null);
+
+        TextView tvPlazoFotos = view.findViewById(R.id.tvPlazoFotos);
+        TextView tvLimiteFotos = view.findViewById(R.id.tvLimiteFotos);
+        TextView tvPlazoVotacion = view.findViewById(R.id.tvPlazoVotacion);
+        TextView tvFormato = view.findViewById(R.id.tvFormato);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .setPositiveButton("Cerrar", null)
+                .create();
+
         db.collection("parametros_rally").document("configuracion")
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
@@ -74,13 +71,20 @@ public class HomeActivity extends AppCompatActivity {
                         String plazoRecepcion = documentSnapshot.getString("plazoRecepcion");
                         String plazoVotacion = documentSnapshot.getString("plazoVotacion");
                         Long limiteFotos = documentSnapshot.getLong("limiteFotos");
-                        String formatoFoto = documentSnapshot.getString("formatosPermitidos");
+                        List<String> formatos = (List<String>) documentSnapshot.get("formatosPermitidos");
 
+                        tvPlazoFotos.setText("📅 Plazo de recepción: " + (plazoRecepcion != null ? plazoRecepcion : "N/D"));
+                        tvPlazoVotacion.setText("🗳️ Plazo de votación: " + (plazoVotacion != null ? plazoVotacion : "N/D"));
+                        tvLimiteFotos.setText("📸 Límite de fotos: " + (limiteFotos != null ? limiteFotos.toString() : "N/D"));
 
-                        tvPlazoFotos.setText("Plazo de recepción de fotografías: " + plazoRecepcion);
-                        tvLimiteFotos.setText("Límite de fotos por participante: " + (limiteFotos != null ? limiteFotos.toString() : "N/D"));
-                        tvPlazoVotacion.setText("Plazo permitido de votación: " + plazoVotacion);
-                        tvFormato.setText("Formatos permitidos: " + formatoFoto);
+                        if (formatos != null && !formatos.isEmpty()) {
+                            String formatosTexto = String.join(", ", formatos);
+                            tvFormato.setText("✔️ Formatos permitidos: " + formatosTexto);
+                        } else {
+                            tvFormato.setText("✔️ Formatos permitidos: N/D");
+                        }
+
+                        dialog.show();
                     } else {
                         Toast.makeText(this, "No se encontraron parámetros", Toast.LENGTH_SHORT).show();
                     }
@@ -90,19 +94,15 @@ public class HomeActivity extends AppCompatActivity {
                 });
     }
 
-
     private void irARegistro() {
-        Intent intent = new Intent(this, RegistroActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, RegistroActivity.class));
     }
 
     private void irALogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     public void irAGaleria(View view) {
-        Intent intent = new Intent(this, ConsentimientoActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, ConsentimientoActivity.class));
     }
 }

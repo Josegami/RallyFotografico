@@ -30,6 +30,24 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
+        SharedPreferences prefs = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
+        boolean sesionParticipanteActiva = prefs.getBoolean("sesionParticipanteActiva", false);
+
+        if (auth.getCurrentUser() != null) {
+            String correo = auth.getCurrentUser().getEmail();
+            if (correo != null && correo.equalsIgnoreCase("usuarioAdmin@gmail.com")) {
+                startActivity(new Intent(this, AdminActivity.class));
+                finish();
+                return;
+            }
+        }
+
+        if (sesionParticipanteActiva) {
+            startActivity(new Intent(this, ParticipanteActivity.class));
+            finish();
+            return;
+        }
+
         campoCorreo = findViewById(R.id.editTextCorreo);
         campoContrasena = findViewById(R.id.editTextContrasena);
         botonIniciarSesion = findViewById(R.id.botonLogin);
@@ -66,9 +84,11 @@ public class LoginActivity extends AppCompatActivity {
                             DocumentSnapshot doc = querySnapshot.getDocuments().get(0);
                             String idParticipante = doc.getId();
 
-                            // Guardar en SharedPreferences para acceso global
                             SharedPreferences prefs = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
-                            prefs.edit().putString("idParticipante", idParticipante).apply();
+                            prefs.edit()
+                                    .putString("idParticipante", idParticipante)
+                                    .putBoolean("sesionParticipanteActiva", true) // Guardar sesión activa
+                                    .apply();
 
                             startActivity(new Intent(this, ParticipanteActivity.class));
                             finish();

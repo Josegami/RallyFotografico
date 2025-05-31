@@ -1,6 +1,7 @@
 package com.example.rallyfotografico.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -42,7 +43,7 @@ public class ParticipanteActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void verMisFotos(View view){
+    public void verMisFotos(View view) {
         String idFirestore = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE)
                 .getString("idParticipante", null);
 
@@ -53,15 +54,14 @@ public class ParticipanteActivity extends AppCompatActivity {
         }
     }
 
-
     public void cerrarSesion(View view) {
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("Cerrar sesión")
                 .setMessage("¿Seguro que deseas cerrar sesión?")
                 .setPositiveButton("Sí", (dialog, which) -> {
-                    getSharedPreferences("UsuarioPrefs", MODE_PRIVATE)
-                            .edit()
-                            .remove("idParticipante")
+                    SharedPreferences prefs = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
+                    prefs.edit()
+                            .clear() // Elimina idParticipante y sesionParticipanteActiva
                             .apply();
 
                     Intent intent = new Intent(this, LoginActivity.class);
@@ -72,5 +72,4 @@ public class ParticipanteActivity extends AppCompatActivity {
                 .setNegativeButton("Cancelar", null)
                 .show();
     }
-
 }
