@@ -64,7 +64,7 @@ public class ParticipanteActivity extends AppCompatActivity {
                             .clear() // Elimina idParticipante y sesionParticipanteActiva
                             .apply();
 
-                    Intent intent = new Intent(this, LoginActivity.class);
+                    Intent intent = new Intent(this, HomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();

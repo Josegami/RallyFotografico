@@ -5,37 +5,95 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.RegistroActivity">
+    android:background="@drawable/background_dark_custom"
+    tools:context=".activities.RegistroActivity"
+    android:padding="24dp">
 
-    <EditText
-        android:id="@+id/editTextCorreo"
+    <!-- Título -->
+    <TextView
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="92dp"
-        android:ems="10"
-        android:inputType="text"
+        android:layout_marginTop="40dp"
+        android:text="¡Bienvenido/a a RallyHub!"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextContrasena"
-        android:layout_width="wrap_content"
+    <!-- Campo de correo -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="92dp"
-        android:ems="10"
-        android:inputType="textPassword"
+        android:hint="        Correo"
+        app:boxBackgroundColor="#22FFFFFF"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:startIconDrawable="@android:drawable/ic_dialog_email"
+        app:startIconTint="@color/md_theme_light_onBackground"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCorreo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp">
 
-    <Button
-        android:id="@+id/botonLogin"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/md_theme_light_onBackground" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo de contraseña -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passLayout"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="136dp"
-        android:text="@string/btnRegistro"
+        android:hint="        Contraseña"
+        app:boxBackgroundColor="#22FFFFFF"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+        app:startIconTint="@color/md_theme_light_onBackground"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/md_theme_light_onBackground"
+        app:layout_constraintTop_toBottomOf="@id/emailLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextContrasena" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/md_theme_light_onBackground" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Botón de registro -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonRegistro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btnRegistro"
+        android:icon="@drawable/ic_person"
+        android:iconTint="@android:color/white"
+        android:textColor="@android:color/white"
+        app:cornerRadius="24dp"
+        app:iconPadding="8dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#000000"
+        app:layout_constraintTop_toBottomOf="@id/passLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

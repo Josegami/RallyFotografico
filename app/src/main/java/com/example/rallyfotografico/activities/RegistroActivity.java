@@ -27,7 +27,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         campoCorreo = findViewById(R.id.editTextCorreo);
         campoContrasena = findViewById(R.id.editTextContrasena);
-        botonRegistrar = findViewById(R.id.botonLogin);
+        botonRegistrar = findViewById(R.id.botonRegistro);
         firestore = FirebaseFirestore.getInstance();
 
         botonRegistrar.setOnClickListener(view -> registrarParticipante());

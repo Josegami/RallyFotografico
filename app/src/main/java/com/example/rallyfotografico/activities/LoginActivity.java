@@ -3,6 +3,7 @@ package com.example.rallyfotografico.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -100,5 +101,10 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
                     });
         }
+    }
+
+    public void irARegistro(View view){
+        Intent intent = new Intent(this, RegistroActivity.class);
+        startActivity(intent);
     }
 }

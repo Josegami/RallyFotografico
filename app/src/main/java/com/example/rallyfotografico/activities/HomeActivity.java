@@ -61,7 +61,6 @@ public class HomeActivity extends AppCompatActivity {
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(view)
-                .setPositiveButton("Cerrar", null)
                 .create();
 
         db.collection("parametros_rally").document("configuracion")

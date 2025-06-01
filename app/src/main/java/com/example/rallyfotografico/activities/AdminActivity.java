@@ -53,8 +53,8 @@ public class AdminActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
         prefs.edit().clear().apply();
 
-        // Volver a login
-        Intent intent = new Intent(this, LoginActivity.class);
+        // Volver a Home
+        Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Evita volver con "atrás"
         startActivity(intent);
         finish();

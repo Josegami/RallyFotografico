@@ -1,49 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_dark_custom"
     android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:paddingBottom="32dp">
 
-        <EditText
-            android:id="@+id/editNombre"
+        <!-- Nombre completo -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre completo"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="16dp" />
+            android:hint="      Nombre completo"
+            app:startIconDrawable="@android:drawable/ic_menu_edit"
+            app:boxBackgroundColor="#22FFFFFF"
+            app:startIconTint="@color/black"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/editTelefono"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Teléfono"
-            android:inputType="phone"
-            android:layout_marginBottom="16dp" />
+            android:hint="      Teléfono"
+            app:startIconDrawable="@android:drawable/ic_menu_call"
+            app:boxBackgroundColor="#22FFFFFF"
+            app:startIconTint="@color/black"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/editFechaNacimiento"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Fecha de nacimiento -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha de nacimiento (dd/mm/aaaa)"
-            android:inputType="date"
-            android:layout_marginBottom="16dp" />
+            android:hint="      Fecha de nacimiento (dd/mm/aaaa)"
+            app:startIconDrawable="@android:drawable/ic_menu_today"
+            app:boxBackgroundColor="#22FFFFFF"
+            app:startIconTint="@color/black"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editFechaNacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Género -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Género"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="4dp"
+            android:textSize="14sp"
+            android:paddingStart="4dp" />
 
         <Spinner
             android:id="@+id/spinnerGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#AAFFFFFF"
             android:layout_marginBottom="24dp" />
 
-        <Button
+        <!-- Botón -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/botonGuardar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar datos" />
+            android:text="Guardar datos"
+            android:textColor="@android:color/white"
+            app:cornerRadius="24dp"
+            android:backgroundTint="#000000" />
+
     </LinearLayout>
 </ScrollView>
