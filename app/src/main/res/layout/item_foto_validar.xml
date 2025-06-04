@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp"
-    android:background="#EEEEEE"
+    android:background="#000000"
     android:layout_marginBottom="8dp">
 
     <ImageView
@@ -12,26 +13,41 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:background="#CCC" />
+        android:background="#222222"
+        android:layout_marginBottom="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="end"
-        android:layout_marginTop="8dp">
+        android:gravity="end">
 
-        <Button
+        <!-- Botón Aceptar (neón cyan) -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/botonAceptar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aceptar" />
+            android:text="Aceptar"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#00FFF0"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:layout_marginEnd="8dp"
+            android:textAllCaps="true" />
 
-        <Button
+        <!-- Botón Rechazar (neón magenta) -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/botonRechazar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rechazar"
-            android:layout_marginStart="8dp" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#FF4081"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:textAllCaps="true" />
+
     </LinearLayout>
 </LinearLayout>

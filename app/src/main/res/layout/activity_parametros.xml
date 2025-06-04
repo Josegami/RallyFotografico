@@ -1,37 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/background_dark_custom"
     android:padding="24dp">
 
-    <EditText
-        android:id="@+id/editTextPlazoRecepcion"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Plazo de recepción de fotos" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center">
 
-    <EditText
-        android:id="@+id/editTextLimiteFotos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Límite de fotos por participante"
-        android:inputType="number" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#001B1E"
+            app:boxStrokeColor="#00FFF0"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/white"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
 
-    <EditText
-        android:id="@+id/editTextPlazoVotacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Plazo permitido para votar" />
-    <EditText
-        android:id="@+id/editTextFormatos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Formatos permitidos" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPlazoRecepcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Plazo de recepción de fotos"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0BEC5" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/botonGuardarParametros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar" />
-</LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#001B1E"
+            app:boxStrokeColor="#FF00FF"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/white"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextLimiteFotos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Límite de fotos por participante"
+                android:inputType="number"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0BEC5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#001B1E"
+            app:boxStrokeColor="#00E5FF"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/white"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPlazoVotacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Plazo permitido para votar"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0BEC5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:boxBackgroundColor="#001B1E"
+            app:boxStrokeColor="#FF00AA"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/white"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextFormatos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Formatos permitidos"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0BEC5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/botonGuardarParametros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GUARDAR"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="true"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#FF1744"
+            app:strokeWidth="3dp"
+            app:cornerRadius="20dp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="112dp"
+            android:layout_height="101dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnEstadisticas"
+            app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
+    </LinearLayout>
+</ScrollView>

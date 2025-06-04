@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#FAFAFA">
+    android:background="@drawable/background_dark_custom"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,10 +18,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="📊 Estadísticas del Rally"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="24dp" />
+            android:textColor="#00FFF0"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif-medium" />
 
         <TextView
             android:id="@+id/txtParticipantes"
@@ -28,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Participantes: "
             android:textSize="18sp"
-            android:textColor="#555555"
+            android:textColor="#00E676"
             android:layout_marginBottom="12dp" />
 
         <TextView
@@ -37,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="Fotos subidas: "
             android:textSize="18sp"
-            android:textColor="#555555"
+            android:textColor="#FFEA00"
             android:layout_marginBottom="12dp" />
 
         <TextView
@@ -46,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="Total de votos: "
             android:textSize="18sp"
-            android:textColor="#555555"
+            android:textColor="#FF4081"
             android:layout_marginBottom="12dp" />
 
         <TextView
@@ -55,13 +57,13 @@
             android:layout_height="wrap_content"
             android:text="Promedio de fotos por participante: "
             android:textSize="18sp"
-            android:textColor="#555555"
+            android:textColor="#7C4DFF"
             android:layout_marginBottom="24dp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#CCCCCC"
+            android:background="#00FFF0"
             android:layout_marginBottom="24dp" />
 
         <TextView
@@ -70,7 +72,7 @@
             android:text="🏆 Foto más votada"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#222222"
+            android:textColor="#00FFF0"
             android:layout_marginBottom="16dp" />
 
         <ImageView
@@ -79,7 +81,7 @@
             android:layout_height="250dp"
             android:scaleType="centerCrop"
             android:layout_marginBottom="16dp"
-            android:background="#E0E0E0" />
+            android:background="@drawable/border_neon_blue" />
 
         <TextView
             android:id="@+id/txtNombreTop"
@@ -87,7 +89,7 @@
             android:layout_height="wrap_content"
             android:text="Participante: "
             android:textSize="16sp"
-            android:textColor="#444444"
+            android:textColor="#FFFFFF"
             android:layout_marginBottom="8dp" />
 
         <TextView
@@ -96,8 +98,13 @@
             android:layout_height="wrap_content"
             android:text="Votos: "
             android:textSize="16sp"
-            android:textColor="#444444"
+            android:textColor="#FFFFFF"
             android:layout_marginBottom="24dp" />
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="136dp"
+            android:layout_height="76dp"
+            app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
     </LinearLayout>
 </ScrollView>

@@ -6,138 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_dark_custom"
-    android:padding="24dp">
-
-    <View
-        android:id="@+id/view1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginVertical="8dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:ignore="DuplicateIds" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnParametros"
-        android:layout_width="175dp"
-        android:layout_height="159dp"
-        android:background="#000000"
-        android:onClick="parametros"
-        android:text="Parámetros"
-        android:textColor="#000000"
-        app:backgroundTint="#F50057"
-        app:icon="@drawable/ic_settings"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:iconSize="40dp"
-        app:iconTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintHorizontal_bias="0.861"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284"
-        app:layout_constraintWidth_percent="0.48" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnUsuarios"
-        android:layout_width="175dp"
-        android:layout_height="159dp"
-        android:background="#000000"
-        android:onClick="usuarios"
-        android:text="Usuarios"
-        android:textColor="#000000"
-        android:textColorLink="#FFFFFF"
-        android:textSize="16sp"
-        app:backgroundTint="#1DE9B6"
-        app:icon="@drawable/ic_person"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:iconSize="40dp"
-        app:iconTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnEstadisticas"
-        android:layout_width="175dp"
-        android:layout_height="159dp"
-        android:background="#000000"
-        android:onClick="estadisticas"
-        android:text="Estadísticas"
-        android:textColor="#000000"
-        app:backgroundTint="#651FFF"
-        app:icon="@drawable/ic_bar_chart"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:iconSize="40dp"
-        app:iconTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintHorizontal_bias="0.861"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
-        app:layout_constraintWidth_percent="0.48" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnValidarFotos"
-        android:layout_width="175dp"
-        android:layout_height="159dp"
-        android:background="#000000"
-        android:onClick="validarFotos"
-        android:text="Validar Fotos"
-        android:textColor="#000000"
-        app:backgroundTint="#FFEA00"
-        app:icon="@drawable/ic_gallery"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:iconSize="40dp"
-        app:iconTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
-        app:layout_constraintWidth_percent="0.48" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnCerrarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:contentDescription="Cerrar sesión"
-        android:onClick="cerrarSesion"
-        app:backgroundTint="@android:color/holo_red_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnValidarFotos"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_logout"
-        app:tint="@android:color/white" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="112dp"
-        android:layout_height="101dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
+    android:padding="24dp"
+    tools:context=".activities.AdminActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -147,8 +17,143 @@
         android:text="ADMIN"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="8dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/textView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón Parámetros -->
+
+    <!-- Botón Usuarios -->
+
+    <!-- Botón Estadísticas -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnParametros"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:onClick="parametros"
+        android:text="Parámetros"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#001B1E"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_settings"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconSize="48dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/btnUsuarios"
+        app:layout_constraintHeight_percent="0.22"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintWidth_percent="0.48"
+        app:strokeColor="#00FFF0"
+        app:strokeWidth="3dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUsuarios"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:onClick="usuarios"
+        android:text="Usuarios"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#001B1E"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_person"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconSize="48dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.22"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/btnParametros"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintWidth_percent="0.48"
+        app:strokeColor="#FF00FF"
+        app:strokeWidth="3dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEstadisticas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Estadísticas"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#001B1E"
+        app:strokeColor="#00E5FF"
+        app:strokeWidth="3dp"
+        app:icon="@drawable/ic_bar_chart"
+        app:iconTint="#FFFFFF"
+        app:iconPadding="8dp"
+        app:iconSize="48dp"
+        app:cornerRadius="24dp"
+        app:iconGravity="textStart"
+        app:layout_constraintTop_toBottomOf="@id/btnParametros"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnValidarFotos"
+        app:layout_constraintHeight_percent="0.22"
+        app:layout_constraintWidth_percent="0.48"
+        android:onClick="estadisticas" />
+
+    <!-- Botón Validar Fotos -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnValidarFotos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Validar Fotos"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#001B1E"
+        app:strokeColor="#FF00AA"
+        app:strokeWidth="3dp"
+        app:icon="@drawable/ic_gallery"
+        app:iconTint="#FFFFFF"
+        app:iconPadding="8dp"
+        app:iconSize="48dp"
+        app:cornerRadius="24dp"
+        app:iconGravity="textStart"
+        app:layout_constraintTop_toBottomOf="@id/btnUsuarios"
+        app:layout_constraintStart_toEndOf="@id/btnEstadisticas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.22"
+        app:layout_constraintWidth_percent="0.48"
+        android:onClick="validarFotos" />
+
+    <!-- FAB Cerrar Sesión -->
+
+    <!-- Logo -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:onClick="cerrarSesion"
+        app:backgroundTint="#B71C1C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_logout"
+        app:tint="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="112dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEstadisticas"
+        app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
 </androidx.constraintlayout.widget.ConstraintLayout>

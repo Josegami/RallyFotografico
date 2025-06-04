@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:text="RALLY"
+        android:text="PHOTO"
         android:textColor="#FFFFFF"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
