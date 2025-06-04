@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_dark_custom"
     android:padding="16dp">
 
     <LinearLayout
@@ -13,31 +15,62 @@
             android:id="@+id/editTextTelefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Teléfono" />
+            android:layout_marginBottom="12dp"
+            android:background="#1E1E1E"
+            android:hint="Teléfono"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#00FFF0" />
 
         <EditText
             android:id="@+id/editTextFechaNacimiento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha de nacimiento (dd/mm/aaaa)" />
+            android:hint="Fecha de nacimiento (dd/mm/aaaa)"
+            android:background="#1E1E1E"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:textColorHint="#00FFF0" />
 
         <EditText
             android:id="@+id/editTextGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Género" />
+            android:hint="Género"
+            android:background="#1E1E1E"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:textColorHint="#00FFF0" />
 
         <EditText
             android:id="@+id/editTextCiudad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ciudad" />
+            android:hint="Ciudad"
+            android:background="#1E1E1E"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp"
+            android:textColorHint="#00FFF0" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/botonGuardarCambios"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar cambios"
-            android:layout_marginTop="20dp" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#00FFF0"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:textAllCaps="true" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="179dp"
+            app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
     </LinearLayout>
 </ScrollView>

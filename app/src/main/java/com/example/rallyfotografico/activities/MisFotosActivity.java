@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rallyfotografico.R;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -150,8 +151,9 @@ public class MisFotosActivity extends AppCompatActivity {
         }
 
         static class FotoViewHolder extends RecyclerView.ViewHolder {
-            ImageView imagen, btnEliminar;
+            ImageView imagen;
             TextView estado;
+            MaterialButton btnEliminar;
 
             FotoViewHolder(@NonNull View itemView) {
                 super(itemView);

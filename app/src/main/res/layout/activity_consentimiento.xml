@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/background_dark_custom">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,46 +16,66 @@
             android:layout_height="wrap_content"
             android:text="Bases del Concurso"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textColor="#00FFF0"
             android:paddingBottom="8dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="• El concurso está abierto del 20/05/2025 al 30/06/2025.\n• Cada participante puede subir hasta 5 fotografías.\n• Solo se admitirán imágenes en formato JPG y PNG.\n• Las imágenes serán validadas por el equipo organizador antes de ser visibles públicamente." />
+            android:lineSpacingExtra="4dp"
+            android:text="• El concurso está abierto del 20/05/2025 al 30/06/2025.\n• Cada participante puede subir hasta 5 fotografías.\n• Solo se admitirán imágenes en formato JPG y PNG.\n• Las imágenes serán validadas por el equipo organizador antes de ser visibles públicamente."
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Derechos de autor"
-            android:textStyle="bold"
-            android:textSize="18sp"
             android:paddingTop="16dp"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="8dp"
+            android:text="Derechos de autor"
+            android:textColor="#00FFF0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="• El participante garantiza ser el autor de las fotografías.\n• Al enviar una fotografía, el autor concede a la organización el derecho de uso para fines de promoción del concurso.\n• No se permitirán imágenes ofensivas, violentas o con contenido inapropiado." />
+            android:lineSpacingExtra="4dp"
+            android:text="• El participante garantiza ser el autor de las fotografías.\n• Al enviar una fotografía, el autor concede a la organización el derecho de uso para fines de promoción del concurso.\n• No se permitirán imágenes ofensivas, violentas o con contenido inapropiado."
+            android:textColor="#FFFFFF" />
 
         <CheckBox
             android:id="@+id/checkBases"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:text="He leído y acepto las bases del concurso"
-            android:layout_marginTop="24dp" />
+            android:textColor="#00FFF0" />
 
         <CheckBox
             android:id="@+id/checkDerechos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Acepto las condiciones sobre los derechos de autor" />
+            android:text="Acepto las condiciones sobre los derechos de autor"
+            android:textColor="#00FFF0" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnContinuar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Continuar"
-            android:layout_marginTop="24dp" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#00FFF0"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:layout_marginTop="24dp"
+            android:textAllCaps="true" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="163dp"
+            app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
     </LinearLayout>
 </ScrollView>

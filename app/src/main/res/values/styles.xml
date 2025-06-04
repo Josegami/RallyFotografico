@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="TemaPrimavera" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">#4CAF50</item>
         <item name="colorPrimaryVariant">#388E3C</item>
         <item name="colorOnPrimary">#FFFFFF</item>
+
         <item name="colorSecondary">#8BC34A</item>
-        <item name="android:windowBackground">#DCEDC8</item>
+        <item name="colorOnSecondary">#000000</item>
+
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+
+        <item name="android:windowBackground">#E8F5E9</item>
+        <item name="android:statusBarColor">#388E3C</item>
+        <item name="android:navigationBarColor">#4CAF50</item>
     </style>
 
     <style name="TemaNieve" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">#2196F3</item>
         <item name="colorPrimaryVariant">#1976D2</item>
         <item name="colorOnPrimary">#FFFFFF</item>
+
         <item name="colorSecondary">#03A9F4</item>
-        <item name="android:windowBackground">#BBDEFB</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+
+        <item name="android:windowBackground">#E3F2FD</item>
+        <item name="android:statusBarColor">#1976D2</item>
+        <item name="android:navigationBarColor">#2196F3</item>
     </style>
 
     <style name="TemaCalor" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">#F44336</item>
         <item name="colorPrimaryVariant">#D32F2F</item>
         <item name="colorOnPrimary">#FFFFFF</item>
+
         <item name="colorSecondary">#FF5722</item>
-        <item name="android:windowBackground">#FFCCBC</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+
+        <item name="android:windowBackground">#FFEBEE</item>
+        <item name="android:statusBarColor">#D32F2F</item>
+        <item name="android:navigationBarColor">#F44336</item>
     </style>
 
 </resources>

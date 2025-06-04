@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="12dp">
+    android:gravity="center_vertical"
+    android:padding="12dp"
+    android:background="#000000">
 
-    <!-- Imagen y estado -->
+    <!-- Imagen + Estado -->
     <FrameLayout
         android:layout_width="200dp"
         android:layout_height="120dp">
@@ -15,7 +17,7 @@
             android:id="@+id/imagenParticipante"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/darker_gray"
+            android:background="#1E1E1E"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -24,22 +26,30 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
             android:layout_margin="6dp"
-            android:background="@android:color/black"
+            android:background="#333333"
             android:padding="4dp"
             android:text="pendiente"
-            android:textColor="@android:color/white"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold" />
     </FrameLayout>
 
-    <!-- Botón eliminar -->
-    <ImageView
+    <!-- Botón eliminar estilo neón rojo -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEliminar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="12dp"
-        android:background="@android:color/holo_red_dark"
-        android:contentDescription="Eliminar foto"
+        android:backgroundTint="#001B1E"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
         android:padding="8dp"
-        android:src="@android:drawable/ic_menu_delete" />
+        app:cornerRadius="20dp"
+        app:icon="@android:drawable/ic_menu_delete"
+        app:iconSize="24dp"
+        app:iconTint="#FF1744"
+        app:strokeColor="#FF1744"
+        app:strokeWidth="2dp" />
 </LinearLayout>

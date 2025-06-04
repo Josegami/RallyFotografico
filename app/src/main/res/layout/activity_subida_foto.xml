@@ -1,41 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="@drawable/background_dark_custom"
     android:padding="24dp">
 
     <TextView
         android:id="@+id/tituloSubirFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Subir Fotografía"
+        android:text="📤 Subir Fotografía"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="20dp" />
 
     <ImageView
         android:id="@+id/imageViewFoto"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:layout_marginBottom="16dp"
-        android:background="#CCCCCC"
-        android:scaleType="centerCrop" />
+        android:layout_marginBottom="20dp"
+        android:scaleType="centerCrop"
+        android:background="#1E1E1E" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/botonSeleccionarFoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccionar foto"
-        android:layout_marginBottom="12dp" />
+        android:text="Seleccionar Foto"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"
+        app:backgroundTint="#001B1E"
+        app:strokeColor="#00FFF0"
+        app:strokeWidth="2dp"
+        app:cornerRadius="12dp"
+        android:layout_marginBottom="16dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/botonSubirFoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Subir foto" />
+        android:text="Subir Foto"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"
+        app:backgroundTint="#001B1E"
+        app:strokeColor="#00FF5F"
+        app:strokeWidth="2dp"
+        app:cornerRadius="12dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
 
 </LinearLayout>

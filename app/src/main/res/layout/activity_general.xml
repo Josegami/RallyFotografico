@@ -1,90 +1,129 @@
-<!-- res/layout/activity_general.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/generalLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/background_dark_custom"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/tituloGaleria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Galería de Fotografías"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
+        android:textColor="#00FFF0"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="12dp" />
+        android:paddingBottom="16dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerGaleria"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal" />
-
-    <!-- Espacio flexible para empujar los botones abajo -->
-    <View
+    <!-- Galería centrada -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <!-- Botones de cambio de tema estéticos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerGaleria"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="#EEEEEE"
+            android:clipToPadding="false"
+            android:elevation="2dp"
+            android:overScrollMode="never"
+            android:padding="8dp"
+            android:scrollbars="horizontal" />
+    </LinearLayout>
 
-    <Button
+    <!-- Botones principales -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:onClick="irAVotos"
-        android:text="Votacion" />
+        android:text="Votación"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#001B1E"
+        app:cornerRadius="12dp"
+        app:strokeColor="#00FFF0"
+        app:strokeWidth="2dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="irARanking"
-        android:text="Ranking" />
+        android:text="Ranking"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#001B1E"
+        app:cornerRadius="12dp"
+        app:strokeColor="#00FFF0"
+        app:strokeWidth="2dp" />
 
+    <!-- Botones de filtro -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:weightSum="3">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPrimavera"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:text="🌼"
-            android:backgroundTint="@color/green_200"
-            android:textColor="@android:color/white"
-            android:layout_marginEnd="6dp"
-            android:tooltipText="Primavera" />
+            android:tooltipText="Primavera"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#00FFF0"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:textAllCaps="true"
+            android:layout_marginEnd="6dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNieve"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:text="❄️"
-            android:backgroundTint="@color/blue_200"
-            android:textColor="@android:color/white"
-            android:layout_marginEnd="6dp"
-            android:tooltipText="Nieve" />
+            android:tooltipText="Nieve"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#00FFF0"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:textAllCaps="true"
+            android:layout_marginEnd="6dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalor"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:text="☀️"
-            android:backgroundTint="@color/red_200"
-            android:textColor="@android:color/white"
-            android:tooltipText="Calor" />
+            android:tooltipText="Calor"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#001B1E"
+            app:strokeColor="#00FFF0"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:textAllCaps="true" />
     </LinearLayout>
 
 </LinearLayout>

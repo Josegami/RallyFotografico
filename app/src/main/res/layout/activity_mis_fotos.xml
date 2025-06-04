@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_dark_custom"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/tituloMisFotos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mis Fotografías"
+        android:text="📸 Mis Fotografías"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="#00FFF0"
+        android:layout_gravity="center_horizontal"
         android:paddingBottom="12dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMisFotos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="4dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:background="#121212" />
 
-
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
 </LinearLayout>
