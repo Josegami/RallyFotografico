@@ -106,7 +106,7 @@ public class GraficoActivity extends AppCompatActivity {
         LinearLayout barraLayout = new LinearLayout(this);
         barraLayout.setOrientation(LinearLayout.HORIZONTAL);
         barraLayout.setPadding(8, 8, 8, 8);
-        barraLayout.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_barra));
+        barraLayout.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_estado));
         barraLayout.setGravity(Gravity.CENTER_VERTICAL);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -139,6 +139,7 @@ public class GraficoActivity extends AppCompatActivity {
         String emoji = votos >= 10 ? "🔥" : votos >= 5 ? "✨" : "";
         nombreView.setText(nombre + " " + emoji);
         nombreView.setTypeface(null, Typeface.BOLD);
+        nombreView.setTextColor(Color.WHITE);
 
         // Barra visual de votos
         View barra = new View(this);
@@ -147,13 +148,13 @@ public class GraficoActivity extends AppCompatActivity {
                 barraAncho, 20);
         barraParams.setMargins(0, 8, 0, 0);
         barra.setLayoutParams(barraParams);
-        barra.setBackgroundColor(Color.parseColor("#FF6F61")); // color coral
+        barra.setBackgroundColor(Color.parseColor("#00FFF0")); // color coral
 
         // Votos al final
         TextView votosView = new TextView(this);
         votosView.setText(votos + " votos");
         votosView.setTextSize(14);
-        votosView.setTextColor(Color.DKGRAY);
+        votosView.setTextColor(Color.WHITE);
 
         contenidoLayout.addView(nombreView);
         contenidoLayout.addView(barra);

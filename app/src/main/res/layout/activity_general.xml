@@ -15,12 +15,12 @@
     <TextView
         android:id="@+id/tituloGaleria"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="16dp"
         android:text="Galería de Fotografías"
         android:textColor="#00FFF0"
-        android:textSize="22sp"
+        android:textSize="34sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -33,10 +33,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerGaleria"
             android:layout_width="match_parent"
-            android:layout_height="275dp"
+            android:layout_height="403dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
-            android:background="#EEEEEE"
+            android:background="#4D4C4C"
             android:clipToPadding="false"
             android:elevation="2dp"
             android:overScrollMode="never"
@@ -80,52 +80,7 @@
         android:gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:weightSum="3">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPrimavera"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="6dp"
-            android:layout_weight="1"
-            android:text="🌼"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:tooltipText="Primavera"
-            app:backgroundTint="#001B1E"
-            app:cornerRadius="12dp"
-            app:strokeColor="#2FFF00"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNieve"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="❄️"
-            android:tooltipText="Nieve"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#001B1E"
-            app:strokeColor="#00FFF0"
-            app:strokeWidth="2dp"
-            app:cornerRadius="12dp"
-            android:textAllCaps="true"
-            android:layout_marginEnd="6dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCalor"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="☀️"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:tooltipText="Calor"
-            app:backgroundTint="#001B1E"
-            app:cornerRadius="12dp"
-            app:strokeColor="#FF0000"
-            app:strokeWidth="2dp" />
-    </LinearLayout>
+        android:weightSum="3"/>
 
     <ImageView
         android:id="@+id/imageView12"

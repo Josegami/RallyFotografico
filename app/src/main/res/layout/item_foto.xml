@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="8dp"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="#3E3C3C"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/imagenAdmitida"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="Foto admitida" />
+        android:layout_width="331dp"
+        android:layout_height="325dp"
+        android:background="@drawable/border_panel"
+        android:contentDescription="Foto admitida"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/nombreParticipante"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre"
+        android:layout_marginTop="4dp"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:paddingTop="4dp" />
+        android:text="Participante"
+        android:textColor="#00FFF0"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </LinearLayout>

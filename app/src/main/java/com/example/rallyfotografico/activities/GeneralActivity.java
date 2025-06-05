@@ -38,10 +38,6 @@ public class GeneralActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences prefs = getSharedPreferences("TemaPrefs", MODE_PRIVATE);
-        int temaSeleccionado = prefs.getInt("tema", R.style.Base_Theme_RallyFotografico);
-        setTheme(temaSeleccionado);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
 
@@ -56,13 +52,7 @@ public class GeneralActivity extends AppCompatActivity {
 
         LinearLayout generalLayout = findViewById(R.id.generalLayout);
 
-        Button btnPrimavera = findViewById(R.id.btnPrimavera);
-        Button btnNieve = findViewById(R.id.btnNieve);
-        Button btnCalor = findViewById(R.id.btnCalor);
 
-        btnPrimavera.setOnClickListener(v -> cambiarTema(R.style.BotonPrimavera));
-        btnNieve.setOnClickListener(v -> cambiarTema(R.style.BotonNieve));
-        btnCalor.setOnClickListener(v -> cambiarTema(R.style.BotonCalor));
     }
 
     public void irAVotos(View view) {
@@ -73,13 +63,6 @@ public class GeneralActivity extends AppCompatActivity {
     public void irARanking(View view) {
         Intent intent = new Intent(this, RankingActivity.class);
         startActivity(intent);
-    }
-
-    private void cambiarTema(int nuevoTema) {
-        SharedPreferences.Editor editor = getSharedPreferences("TemaPrefs", MODE_PRIVATE).edit();
-        editor.putInt("tema", nuevoTema);
-        editor.apply();
-        recreate(); // Reinicia la activity para aplicar el nuevo tema
     }
 
     private void cargarFotosAdmitidas() {

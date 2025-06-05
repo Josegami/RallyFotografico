@@ -24,13 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
-        android:overScrollMode="never"
         android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
         android:padding="4dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layoutManager_orientation="horizontal"/>
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <ImageView
         android:id="@+id/imageView13"

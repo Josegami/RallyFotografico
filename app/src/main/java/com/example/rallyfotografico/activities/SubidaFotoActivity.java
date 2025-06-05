@@ -80,31 +80,70 @@ public class SubidaFotoActivity extends AppCompatActivity {
             return;
         }
 
-        try (InputStream inputStream = getContentResolver().openInputStream(imagenUri)) {
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos);
-            byte[] imageBytes = baos.toByteArray();
-            String imageBase64 = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        // 1. Traer el límite desde Firestore
+        db.collection("parametros_rally").document("configuracion")
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (!documentSnapshot.exists()) {
+                        Toast.makeText(this, "No se encontró la configuración del rally", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-            Map<String, Object> fotoMap = new HashMap<>();
-            fotoMap.put("idParticipante", idParticipante);
-            fotoMap.put("imagen", imageBase64);
-            fotoMap.put("estado", "pendiente");
+                    Long limiteFotos = documentSnapshot.getLong("limiteFotos");
+                    if (limiteFotos == null) {
+                        Toast.makeText(this, "El parámetro 'limiteFotos' no está definido", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-            db.collection("fotos")
-                    .add(fotoMap)
-                    .addOnSuccessListener(documentReference -> {
-                        Toast.makeText(this, "Foto subida correctamente", Toast.LENGTH_SHORT).show();
-                        finish();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Error al subir la foto", Toast.LENGTH_SHORT).show();
-                    });
+                    // 2. Contar fotos ya subidas por el participante
+                    db.collection("fotos")
+                            .whereEqualTo("idParticipante", idParticipante)
+                            .get()
+                            .addOnSuccessListener(querySnapshot -> {
+                                int cantidadActual = querySnapshot.size();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Error al procesar la imagen", Toast.LENGTH_SHORT).show();
-        }
+                                if (cantidadActual >= limiteFotos) {
+                                    Toast.makeText(this, "Ya subiste el máximo de " + limiteFotos + " fotos permitidas", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+
+                                // 3. Codificar imagen y subir
+                                try (InputStream inputStream = getContentResolver().openInputStream(imagenUri)) {
+                                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                    bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos);
+                                    byte[] imageBytes = baos.toByteArray();
+                                    String imageBase64 = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+                                    Map<String, Object> fotoMap = new HashMap<>();
+                                    fotoMap.put("idParticipante", idParticipante);
+                                    fotoMap.put("imagen", imageBase64);
+                                    fotoMap.put("estado", "pendiente");
+
+                                    db.collection("fotos")
+                                            .add(fotoMap)
+                                            .addOnSuccessListener(documentReference -> {
+                                                Toast.makeText(this, "Foto subida correctamente", Toast.LENGTH_SHORT).show();
+                                                finish();
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                Toast.makeText(this, "Error al subir la foto", Toast.LENGTH_SHORT).show();
+                                            });
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(this, "Error al procesar la imagen", Toast.LENGTH_SHORT).show();
+                                }
+
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(this, "No se pudieron contar las fotos subidas", Toast.LENGTH_SHORT).show();
+                            });
+
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Error al cargar configuración", Toast.LENGTH_SHORT).show();
+                });
     }
+
 }
