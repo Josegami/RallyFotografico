@@ -39,7 +39,7 @@ public class GeneralActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences prefs = getSharedPreferences("TemaPrefs", MODE_PRIVATE);
-        int temaSeleccionado = prefs.getInt("tema", R.style.TemaPrimavera);
+        int temaSeleccionado = prefs.getInt("tema", R.style.Base_Theme_RallyFotografico);
         setTheme(temaSeleccionado);
 
         super.onCreate(savedInstanceState);
@@ -60,9 +60,9 @@ public class GeneralActivity extends AppCompatActivity {
         Button btnNieve = findViewById(R.id.btnNieve);
         Button btnCalor = findViewById(R.id.btnCalor);
 
-        btnPrimavera.setOnClickListener(v -> cambiarTema(R.style.TemaPrimavera));
-        btnNieve.setOnClickListener(v -> cambiarTema(R.style.TemaNieve));
-        btnCalor.setOnClickListener(v -> cambiarTema(R.style.TemaCalor));
+        btnPrimavera.setOnClickListener(v -> cambiarTema(R.style.BotonPrimavera));
+        btnNieve.setOnClickListener(v -> cambiarTema(R.style.BotonNieve));
+        btnCalor.setOnClickListener(v -> cambiarTema(R.style.BotonCalor));
     }
 
     public void irAVotos(View view) {

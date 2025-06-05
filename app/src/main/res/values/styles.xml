@@ -1,52 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TemaPrimavera" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#4CAF50</item>
-        <item name="colorPrimaryVariant">#388E3C</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-
-        <item name="colorSecondary">#8BC34A</item>
-        <item name="colorOnSecondary">#000000</item>
-
-        <item name="colorSurface">#FFFFFF</item>
-        <item name="colorOnSurface">#212121</item>
-
-        <item name="android:windowBackground">#E8F5E9</item>
-        <item name="android:statusBarColor">#388E3C</item>
-        <item name="android:navigationBarColor">#4CAF50</item>
+    <!-- Estilo base para MaterialButtons con borde y esquinas redondeadas -->
+    <style name="BotonBordesBase" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="backgroundTint">#001B1E</item>
+        <item name="strokeColor">#00FFF0</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="TemaNieve" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#2196F3</item>
-        <item name="colorPrimaryVariant">#1976D2</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-
-        <item name="colorSecondary">#03A9F4</item>
-        <item name="colorOnSecondary">#FFFFFF</item>
-
-        <item name="colorSurface">#FFFFFF</item>
-        <item name="colorOnSurface">#212121</item>
-
-        <item name="android:windowBackground">#E3F2FD</item>
-        <item name="android:statusBarColor">#1976D2</item>
-        <item name="android:navigationBarColor">#2196F3</item>
+    <!-- Estilos derivados por tema -->
+    <style name="BotonPrimavera" parent="BotonBordesBase">
+        <item name="backgroundTint">#4CAF50</item>
+        <item name="strokeColor">#81C784</item>
     </style>
 
-    <style name="TemaCalor" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#F44336</item>
-        <item name="colorPrimaryVariant">#D32F2F</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
+    <style name="BotonNieve" parent="BotonBordesBase">
+        <item name="backgroundTint">#2196F3</item>
+        <item name="strokeColor">#90CAF9</item>
+    </style>
 
-        <item name="colorSecondary">#FF5722</item>
-        <item name="colorOnSecondary">#FFFFFF</item>
-
-        <item name="colorSurface">#FFFFFF</item>
-        <item name="colorOnSurface">#212121</item>
-
-        <item name="android:windowBackground">#FFEBEE</item>
-        <item name="android:statusBarColor">#D32F2F</item>
-        <item name="android:navigationBarColor">#F44336</item>
+    <style name="BotonCalor" parent="BotonBordesBase">
+        <item name="backgroundTint">#F44336</item>
+        <item name="strokeColor">#FF8A65</item>
     </style>
 
 </resources>

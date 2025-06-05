@@ -10,18 +10,19 @@
     android:gravity="center_horizontal">
 
     <!-- Título -->
+
+    <!-- Galería centrada -->
     <TextView
         android:id="@+id/tituloGaleria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Galería de Fotografías"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#00FFF0"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="16dp" />
+        android:paddingBottom="16dp"
+        android:text="Galería de Fotografías"
+        android:textColor="#00FFF0"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
-    <!-- Galería centrada -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,7 +56,7 @@
         android:textColor="#FFFFFF"
         app:backgroundTint="#001B1E"
         app:cornerRadius="12dp"
-        app:strokeColor="#00FFF0"
+        app:strokeColor="#EAFF00"
         app:strokeWidth="2dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -68,7 +69,7 @@
         android:textColor="#FFFFFF"
         app:backgroundTint="#001B1E"
         app:cornerRadius="12dp"
-        app:strokeColor="#00FFF0"
+        app:strokeColor="#FF00E5"
         app:strokeWidth="2dp" />
 
     <!-- Botones de filtro -->
@@ -85,16 +86,16 @@
             android:id="@+id/btnPrimavera"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginEnd="6dp"
             android:layout_weight="1"
             android:text="🌼"
-            android:tooltipText="Primavera"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#001B1E"
-            app:strokeColor="#00FFF0"
-            app:strokeWidth="2dp"
-            app:cornerRadius="12dp"
             android:textAllCaps="true"
-            android:layout_marginEnd="6dp" />
+            android:textColor="#FFFFFF"
+            android:tooltipText="Primavera"
+            app:backgroundTint="#001B1E"
+            app:cornerRadius="12dp"
+            app:strokeColor="#2FFF00"
+            app:strokeWidth="2dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNieve"
@@ -117,13 +118,19 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="☀️"
-            android:tooltipText="Calor"
+            android:textAllCaps="true"
             android:textColor="#FFFFFF"
+            android:tooltipText="Calor"
             app:backgroundTint="#001B1E"
-            app:strokeColor="#00FFF0"
-            app:strokeWidth="2dp"
             app:cornerRadius="12dp"
-            android:textAllCaps="true" />
+            app:strokeColor="#FF0000"
+            app:strokeWidth="2dp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/camera_minimalistic_svgrepo_com" />
 
 </LinearLayout>

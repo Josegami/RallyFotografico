@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/containerRanking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="#001B1E">
 
     <TextView
         android:id="@+id/tituloRanking"
@@ -15,6 +16,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
+        android:textColor="#00FFF0"
         android:paddingBottom="12dp" />
 
     <LinearLayout
@@ -27,15 +29,16 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#CCCCCC" />
+        android:background="#00FFF0" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Resto del Ranking"
         android:textStyle="bold"
-        android:paddingTop="12dp"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textColor="#00FFF0"
+        android:paddingTop="12dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerResto"
@@ -44,13 +47,17 @@
         android:layout_weight="1"
         android:paddingTop="8dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnVerGrafico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ver gráfico de votos"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/blue_200"
-        android:textColor="#FFFFFF" />
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#001B1E"
+        app:strokeColor="#00FFF0"
+        app:strokeWidth="2dp"
+        app:cornerRadius="12dp"
+        android:layout_marginTop="12dp" />
 
 </LinearLayout>
