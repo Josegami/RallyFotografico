@@ -25,7 +25,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,21 +66,62 @@ public class RankingActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(snapshot -> {
                     listaRanking.clear();
+                    final int totalFotos = snapshot.size();
+                    final int[] fotosProcesadas = {0};
+
+                    if (totalFotos == 0) {
+                        mostrarTop3();
+                        adapter.notifyDataSetChanged();
+                        return;
+                    }
+
                     for (QueryDocumentSnapshot doc : snapshot) {
                         Map<String, Object> foto = new HashMap<>(doc.getData());
                         foto.put("id", doc.getId());
-                        listaRanking.add(foto);
+
+                        String idParticipante = (String) foto.get("idParticipante");
+
+                        if (idParticipante != null) {
+                            db.collection("participantes").document(idParticipante)
+                                    .get()
+                                    .addOnSuccessListener(partDoc -> {
+                                        String nombre = partDoc.getString("nombre");
+                                        foto.put("nombre", nombre != null ? nombre : "Desconocido");
+                                        listaRanking.add(foto);
+                                        fotosProcesadas[0]++;
+                                        if (fotosProcesadas[0] == totalFotos) {
+                                            ordenarYMostrarRanking();
+                                        }
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        foto.put("nombre", "Desconocido");
+                                        listaRanking.add(foto);
+                                        fotosProcesadas[0]++;
+                                        if (fotosProcesadas[0] == totalFotos) {
+                                            ordenarYMostrarRanking();
+                                        }
+                                    });
+                        } else {
+                            foto.put("nombre", "Desconocido");
+                            listaRanking.add(foto);
+                            fotosProcesadas[0]++;
+                            if (fotosProcesadas[0] == totalFotos) {
+                                ordenarYMostrarRanking();
+                            }
+                        }
                     }
-
-                    Collections.sort(listaRanking, (a, b) -> {
-                        Long votosA = (Long) a.get("votos");
-                        Long votosB = (Long) b.get("votos");
-                        return Long.compare(votosB != null ? votosB : 0, votosA != null ? votosA : 0);
-                    });
-
-                    mostrarTop3();
-                    adapter.notifyDataSetChanged();
                 });
+    }
+
+    private void ordenarYMostrarRanking() {
+        Collections.sort(listaRanking, (a, b) -> {
+            Long votosA = (Long) a.get("votos");
+            Long votosB = (Long) b.get("votos");
+            return Long.compare(votosB != null ? votosB : 0, votosA != null ? votosA : 0);
+        });
+
+        mostrarTop3();
+        adapter.notifyDataSetChanged();
     }
 
     private void mostrarTop3() {
@@ -121,9 +161,8 @@ public class RankingActivity extends AppCompatActivity {
             top3Container.addView(vista);
         }
 
-        // Elimina los 3 primeros para mostrarlos como "resto"
         if (listaRanking.size() > 3) {
-            listaRanking = listaRanking.subList(3, listaRanking.size());
+            listaRanking = new ArrayList<>(listaRanking.subList(3, listaRanking.size()));
         } else {
             listaRanking.clear();
         }
@@ -167,6 +206,7 @@ public class RankingActivity extends AppCompatActivity {
         class VH extends RecyclerView.ViewHolder {
             ImageView img;
             TextView nombre, votos;
+
             VH(View itemView) {
                 super(itemView);
                 img = itemView.findViewById(R.id.imgResto);
